@@ -1,13 +1,13 @@
 public class Node{
     
  public Node(String value){
-     
+     this.data = value; 
  }
  private String data;
  private Node next,prev;
  
  public String getData(){
-     return data;
+     return this.data;
  }
  
  public boolean setData(String data){
@@ -16,7 +16,7 @@ public class Node{
  }
  
  public Node getNext(){
-     return next;
+     return this.next;
  }
  
  public boolean setNext(Node next){
@@ -25,14 +25,12 @@ public class Node{
  }
  
   public Node getPrev(){
-     return prev;
+     return this.prev;
  }
  
  public boolean setPrev(Node prev){
      this.prev = prev;
      return true;
  }
- 
- //write get/set methods for all three instance variables.
  
 }
