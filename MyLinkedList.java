@@ -52,6 +52,7 @@ public class MyLinkedList{
  }
  
  private Node getNode(int index){
+     
     if(index ==0) 
     return start;
     
@@ -71,7 +72,7 @@ public class MyLinkedList{
 
  
  public String get(int index){
-    
+    return getNode(index).geteData();
  }
  
  public String set(int index, String value){
