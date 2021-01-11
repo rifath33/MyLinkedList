@@ -81,7 +81,19 @@ public class MyLinkedList{
  }
  
  public String toString(){
-     
+    String result = "";
+    
+    Node currentNode = start;
+    
+    while(currentNode.hasNext()){
+        result += currentNode.getData() + ", ";
+        currentNode = currentNode.getNext();
+    }
+    
+    result = result + "]";
+    
+    return result;
+    
  }
  
  //Any helper method that returns a Node object MUST BE PRIVATE!
