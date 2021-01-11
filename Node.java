@@ -33,4 +33,10 @@ public class Node{
      return true;
  }
  
+ public boolean hasNext(){
+     if(this.getNext() == null)
+     return false;
+     else return true;
+ }
+ 
 }
