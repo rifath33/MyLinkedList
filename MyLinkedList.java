@@ -76,7 +76,8 @@ public class MyLinkedList{
  }
  
  public String set(int index, String value){
-     
+    getNode(index).setData(value);
+    return getNode(index).getData();
  }
  
  public String toString(){
