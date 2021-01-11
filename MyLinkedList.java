@@ -7,12 +7,12 @@ public class MyLinkedList{
  }
  
  public int size(){
-    return this.size();
+    return this.size;
  }
  
  public boolean add(String value){
     
-    if(size == 0){
+    if(size() == 0){
         start = new Node(value);
         end = new Node(value);
         size++;
@@ -25,7 +25,30 @@ public class MyLinkedList{
  }
  
  public void add(int index, String value){
- 
+    
+    if(size()==0 && index>0)
+    throw new IndexOutOfBoundsException("Your index can't be more than 0 if the List is empty...");
+    
+    if(index == 0 && size() == 0){
+        start = new Node(value);
+        end = new Node(value);
+        size++;
+    }
+    
+    if(index == 0 && size() > 0){
+        start.setPrev(new Node(value));
+        start = start.getPrev();
+    }
+    
+    if(index == list.size()-1 && size() > 0){
+        end.setNext(new Node(value));
+        end = end.getNext();
+    }
+    
+    if(index > 0 && index < list.size()-1 && size()){
+        
+    }
+    
  }
  
  public String get(int index){
