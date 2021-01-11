@@ -26,27 +26,33 @@ public class MyLinkedList{
  
  public void add(int index, String value){
     
+    Node addition = new Node(value);
+    
     if(size()==0 && index>0)
     throw new IndexOutOfBoundsException("Your index can't be more than 0 if the List is empty...");
     
     if(index == 0 && size() == 0){
-        start = new Node(value);
-        end = new Node(value);
+        start = addition;
+        end = addition;
         size++;
     }
     
     if(index == 0 && size() > 0){
-        start.setPrev(new Node(value));
+        start.setPrev(addition);
         start = start.getPrev();
+        size++;
     }
     
     if(index == list.size()-1 && size() > 0){
-        end.setNext(new Node(value));
+        end.setNext(addition);
         end = end.getNext();
+        size++;
     }
     
     if(index > 0 && index < list.size()-1 && size()){
-        
+        getNode(index).getPrev().setNext(addition);
+        getNode(index).getNext().setPrev(addition);
+        size++;        
     }
     
  }
