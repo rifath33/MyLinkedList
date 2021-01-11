@@ -112,6 +112,22 @@ public class MyLinkedList{
     
  }
  
+  public String toStringReversed(){
+    String result = "";
+    
+    Node currentNode = end;
+    
+    while(currentNode.hasPrev()){
+        result += currentNode.getData() + ", ";
+        currentNode = currentNode.getPrev();
+    }
+    
+    result = result + "]";
+    
+    return result;
+    
+ }
+ 
  //Any helper method that returns a Node object MUST BE PRIVATE!
  
 }
