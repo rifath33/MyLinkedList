@@ -51,6 +51,11 @@ public class MyLinkedList{
     
  }
  
+ private Node getNode(int index){
+     
+ }
+
+ 
  public String get(int index){
     
  }
