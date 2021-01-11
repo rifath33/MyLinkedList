@@ -39,4 +39,10 @@ public class Node{
      else return true;
  }
  
+ public boolean hasPrev(){
+     if(this.getPrev() == null)
+     return false;
+     else return true;
+ }
+ 
 }
