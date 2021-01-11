@@ -52,7 +52,21 @@ public class MyLinkedList{
  }
  
  private Node getNode(int index){
-     
+    if(index ==0) 
+    return start;
+    
+    if(n == size()-1)
+    return end;
+    
+    if(size>0){
+        Node currentNode = start;
+        for(int i = 0; i < index; i++){
+            currentNode = currentNode.getNext();
+        }
+    }
+    
+    return currentNode;
+    
  }
 
  
