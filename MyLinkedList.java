@@ -12,14 +12,18 @@ public class MyLinkedList{
  
  public boolean add(String value){
     
+    Node addition = new Node(value);
+    
     if(size() == 0){
-        start = new Node(value);
-        end = new Node(value);
+        start = addition;
+        end = addition;
         size++;
     }
     else{
         end.setNext(new Node(value));
+        addition.setPrev(end);
         end = end.getNext();
+        size++;
     }
     
     return true;
@@ -28,34 +32,7 @@ public class MyLinkedList{
  
  public void add(int index, String value){
     
-    Node addition = new Node(value);
     
-    if(this.size()==0 && index>0)
-    throw new IndexOutOfBoundsException("Your index can't be more than 0 if the List is empty...");
-    
-    if(index == 0 && size() == 0){
-        start = addition;
-        end = addition;
-        size++;
-    }
-    
-    if(index == 0 && size() > 0){
-        start.setPrev(addition);
-        start = start.getPrev();
-        size++;
-    }
-    
-    if(index == this.size()-1 && size() > 0){
-        end.setNext(addition);
-        end = end.getNext();
-        size++;
-    }
-    
-    if(index > 0 && index < this.size()-1 && this.size()>0){
-        getNode(index).getPrev().setNext(addition);
-        getNode(index).getNext().setPrev(addition);
-        size++;        
-    }
     
  }
  
@@ -97,7 +74,7 @@ public class MyLinkedList{
  }
  
  public String toString(){
-    String result = "";
+    String result = "[";
     
     Node currentNode = start;
     
@@ -106,14 +83,14 @@ public class MyLinkedList{
         currentNode = currentNode.getNext();
     }
     
-    result = result + "]";
+    result += currentNode.getData() + "]";
     
     return result;
     
  }
  
   public String toStringReversed(){
-    String result = "";
+    String result = "[";
     
     Node currentNode = end;
     
@@ -122,12 +99,12 @@ public class MyLinkedList{
         currentNode = currentNode.getPrev();
     }
     
-    result = result + "]";
+    result += currentNode.getData() + "]";
     
     return result;
     
  }
- 
+
  //Any helper method that returns a Node object MUST BE PRIVATE!
  
 }
