@@ -58,6 +58,49 @@ public class MyLinkedList{
         }
     }
     
+ }
+  
+ public String remove(int index){
+    if(index > size() || index < 0 || size() == 0)
+    throw new IndexOutOfBoundsException("The index " + index + "is not present in the list.");
+    
+    String evicted = getNode(index).getData();
+    
+    // removing the tail
+    if(index == size()-1){
+        end.setData(null);
+        end.getPrev().setNext(null);
+        end = end.getPrev();
+        size--;
+    }
+    else{
+        // removing the head
+        if(index == 0){
+            start.setData(null);
+            start.getNext().setPrev(null);
+            start=start.getNext();
+            size--;
+        }
+        // removing the final element of a size 1 list
+        else{
+            if(size() == 1){
+                start.setData(null);
+                start.getNext().setData(null);
+                end.setData(null);
+                end.getPrev().setData(null);
+                size--;
+            }
+            // removing from the middle... shit
+            else{
+                getNode(index).setData(null);
+                getNode(index).getPrev().setNext(getNode(index).getNext());
+                getNode(index).getNext().setPrev(getNode(index).getPrev());
+                size--;
+            }
+        }
+    }
+    
+    return evicted;
     
  }
  
@@ -127,6 +170,17 @@ public class MyLinkedList{
     result += currentNode.getData() + "]";
     
     return result;
+    
+ }
+    
+/*
+ *@postcondition: All of the elements from other are removed from the other, and connected to the end of this linked list.
+ *@postcondition: The size of other is reduced to 0.
+ *@postcondition: The size of this is now the combined sizes of both original lists
+*/
+ public void extend(MyLinkedList other){
+    
+    
     
  }
 
