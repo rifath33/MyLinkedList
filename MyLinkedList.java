@@ -145,13 +145,14 @@ public class MyLinkedList{
     
     Node currentNode = start;
     
-    while(currentNode.hasNext()){
-        result += currentNode.getData() + ", ";
-        currentNode = currentNode.getNext();
+    if(size() > 0){
+        while(currentNode.hasNext()){
+            result += currentNode.getData() + ", ";
+            currentNode = currentNode.getNext();
+        }
+    result += currentNode.getData();
     }
-    
-    result += currentNode.getData() + "]";
-    
+    result+="]";
     return result;
     
  }
@@ -161,12 +162,14 @@ public class MyLinkedList{
     
     Node currentNode = end;
     
-    while(currentNode.hasPrev()){
-        result += currentNode.getData() + ", ";
-        currentNode = currentNode.getPrev();
+    if(size()>0){
+        while(currentNode.hasPrev()){
+            result += currentNode.getData() + ", ";
+            currentNode = currentNode.getPrev();
+        }
+        result += currentNode.getData();
     }
-    
-    result += currentNode.getData() + "]";
+    result+="]";
     
     return result;
     
