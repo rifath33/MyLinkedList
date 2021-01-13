@@ -176,10 +176,30 @@ public class MyLinkedList{
  *@postcondition: All of the elements from other are removed from the other, and connected to the end of this linked list.
  *@postcondition: The size of other is reduced to 0.
  *@postcondition: The size of this is now the combined sizes of both original lists
+  Please consider that either/both of the lists can have 0 or more elemnts in them. 
+  Be careful how you write your code so that it works even when either/both are empty/size1/size2+.
 */
  public void extend(MyLinkedList other){
     
+    // empty
+    if(other.size()==0){
+        return; //skip
+    }
+    else{
+        if(size() ==0){
+            this.start = other.start;
+        }
+        else{
+            end.setNext(other.start);
+            other.start.setPrev(this.end);
+        }
+    }
     
+    this.end = other.end;
+    size = size() + other.size();
+    other.start = null;
+    other.end=null;
+    other.size = 0;
     
  }
 
