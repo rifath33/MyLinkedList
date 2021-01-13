@@ -61,8 +61,8 @@ public class MyLinkedList{
  }
   
  public String remove(int index){
-    if(index > size() || index < 0 || size() == 0)
-    throw new IndexOutOfBoundsException("The index " + index + "is not present in the list.");
+    if(index >= size() || index < 0 || size() == 0)
+    throw new IndexOutOfBoundsException("The index " + index + " is not present in the list.");
     
     String evicted = getNode(index).getData();
     
@@ -92,9 +92,8 @@ public class MyLinkedList{
             }
             // removing from the middle... shit
             else{
-                getNode(index).setData(null);
-                getNode(index).getPrev().setNext(getNode(index).getNext());
-                getNode(index).getNext().setPrev(getNode(index).getPrev());
+                getNode(index-1).setNext(getNode(index+1));
+                getNode(index+1).setPrev(getNode(index-1));
                 size--;
             }
         }
