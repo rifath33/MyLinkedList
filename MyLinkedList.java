@@ -20,7 +20,7 @@ public class MyLinkedList{
         size++;
     }
     else{
-        end.setNext(new Node(value));
+        end.setNext(addition);
         addition.setPrev(end);
         end = end.getNext();
         size++;
@@ -32,6 +32,31 @@ public class MyLinkedList{
  
  public void add(int index, String value){
     
+    if(index > size() || index < 0)
+    throw new IndexOutOfBoundsException("The index " + index + "is not present in the list.");
+    
+    Node addition = new Node(value);
+    
+    if(size() == 0 || index ==size()){
+        add(value);
+    }
+    else{
+        if(index==0){
+            start.setPrev(addition);
+            addition.setNext(start);
+            start = addition;
+            size++;
+        }
+        else{
+            Node willBePrevious = getNode(index-1);
+            Node willBeNext = getNode(index);
+            addition.setPrev(willBePrevious);
+            addition.setNext(willBeNext);
+            willBePrevious.setNext(addition);
+            willBeNext.setPrev(addition);
+            size++;
+        }
+    }
     
     
  }
